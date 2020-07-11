@@ -1,0 +1,12 @@
+from smbus2 import SMBus
+from mlx90614 import MLX90614
+import time
+while(1):
+    
+    bus = SMBus(1)
+    sensor = MLX90614(bus, address=0x5A)
+
+    #print(dir(MLX90614))
+    print(sensor.get_object_1())
+    bus.close()
+    time.sleep(1)
